@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('shop.urls', namespace='shop')),
 ]
+
+if settings.DEBUG: urlpatterns += static( settings.MEDIA_URL, documents_root=settings.MEDIA_ROOT )
