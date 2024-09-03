@@ -49,4 +49,16 @@ class Cart:
             item['total_price'] = item['price'] * item['quantity']
             yield item
 
+    def __len__(self):
+        """ Count all items in the cart. """
+        return sum(item['quantity'] for item in self.cart.values())
+
+    def get_total_price(self):
+        return sum(Decimal(item['price']) * item['quantity'] for item in self.care.values() )
+
+    def clear(self):
+        #remove cart from session
+        del self.session[settings.CART_SESSion_ID]
+        self.save()
+
     
