@@ -14,6 +14,9 @@ from pathlib import Path
 from decouple import config
 
 CART_SESSION_ID = 'cart'
+CELERY_BROKER_URL = 'amqp://localhost'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
